@@ -1,3 +1,11 @@
+This capacity planning tool will leverage data collected by the Ganglia monitoring 
+tool (http://ganglia.sourceforge.net) and provide a simple tabular web page that 
+allows you to quickly identify hot spots and trends among key metrics on your 
+various clusters of servers.
+
+The project was born out of an effort at a top 15 website to get a handle on 
+their capacity planning needs.  It in use at several companies today.
+
 Requirements
 ============
 
