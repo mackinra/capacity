@@ -13,7 +13,8 @@ Requirements
 
 * [optional] arial.ttf font (typically installed in /usr/share/fonts/truetype)
 
-    Example: sudo apt-get install msttcorefonts && cd /usr/share/fonts/truetype; ln -s msttcorefonts/arial.ttf
+    Example: sudo apt-get install msttcorefonts
+             cd /usr/share/fonts/truetype; ln -s msttcorefonts/arial.ttf
 
 
 Installation
@@ -29,11 +30,12 @@ It is assumed that you already have a working Ganglia setup.
 
     mysql -u root -p < /usr/local/capacity/capacity_db.sql
 
-4) Modify cluster.inc and grab_rrd_data.inc in conf directory to your liking.  The contents of cluster.inc are
-   closely tied to your Ganglia directory structure.  Note: the web interface allows you to edit these files 
-   as well.
+4) Modify cluster.inc and grab_rrd_data.inc in conf directory to your liking.  The 
+   contents of cluster.inc are closely tied to your Ganglia directory structure.  
+   Note: the web interface allows you to edit these files as well.
 
-5) Setup apache to serve the php scripts under the html directory. TODO: include sample apache conf.d file.
+5) Setup apache to serve the php scripts under the html directory. 
+   TODO: include sample apache conf.d file.
 
 6) Test grab_rrd_data.php (which collects ganglia data into db) in the bin directory:
 
@@ -48,9 +50,10 @@ It is assumed that you already have a working Ganglia setup.
     [edit capacity.cron to your liking, removing the root username]
     crontab /usr/local/capacity.cron
 
-8) Once there's data collected, visit the web interface you set up with apache.  You can click on any peak metric
-   to see a graph of that metric over time.  Note: trend graphs will obviously only become useful after several 
-   days/weeks/months of data is collected. :)
+8) Once there's data collected, visit the web interface you set up with apache.  You 
+   can click on any peak metric to see a graph of that metric over time.  
+   Note: trend graphs will obviously only become useful after several 
+         days/weeks/months of data is collected. :)
 
 That should be it.
 
