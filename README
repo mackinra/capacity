@@ -54,7 +54,7 @@ It is assumed that you already have a working Ganglia setup.
 
 8) Test grab_rrd_data.php (which collects ganglia data into db) in the bin directory:
 
-    php /usr/local/capacity/bin/grab_rrd_data.php
+    cd /usr/local/capacity/bin; php /usr/local/capacity/bin/grab_rrd_data.php
 
 9) If no errors reported in step 6, install cron job:
 
