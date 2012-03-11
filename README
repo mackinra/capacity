@@ -58,7 +58,9 @@ It is assumed that you already have a working Ganglia setup.
 
 9) If no errors reported in step 6, install cron job:
 
-    cp /usr/local/capacity/capacity.cron /etc/cron.d/ && /etc/init.d/cron reload
+    cp /usr/local/capacity/capacity.cron /etc/cron.d/capacity
+    /etc/init.d/cron reload  # for RHEL/Centos
+    service cron reload      # for Debian/Ubuntu
 
     - OR -
 
