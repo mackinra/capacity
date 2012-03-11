@@ -1,0 +1,1 @@
+30 9 * * * root cd /usr/local/capacity/bin; php ./grab_rrd_data.php >> ../logs/grab_rrd_data.log 2>&1

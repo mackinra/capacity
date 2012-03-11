@@ -1,0 +1,59 @@
+Requirements
+============
+
+* Ganglia 3.x (assumed that default directories are used: e.g., /var/lib/ganglia/rrds)
+
+* rrdtool (1.2 or higher preferred)
+
+* gnuplot (4.0 or higher preferred)
+
+* apache 1.x or 2.x
+
+* php 5.x (with mysql support)
+
+* [optional] arial.ttf font (typically installed in /usr/share/fonts/truetype)
+
+    Example: sudo apt-get install msttcorefonts && cd /usr/share/fonts/truetype; ln -s msttcorefonts/arial.ttf
+
+
+Installation
+============
+
+It is assumed that you already have a working Ganglia setup.
+
+1) Install any missing required packages (see Requirements section above).
+
+2) Copy capacity directory to it's permanent home (e.g., /usr/local/capacity).
+
+3) Create mysql database:
+
+    mysql -u root -p < /usr/local/capacity/capacity_db.sql
+
+4) Modify cluster.inc and grab_rrd_data.inc in conf directory to your liking.  The contents of cluster.inc are
+   closely tied to your Ganglia directory structure.  Note: the web interface allows you to edit these files 
+   as well.
+
+5) Setup apache to serve the php scripts under the html directory. TODO: include sample apache conf.d file.
+
+6) Test grab_rrd_data.php (which collects ganglia data into db) in the bin directory:
+
+    php /usr/local/capacity/bin/grab_rrd_data.php
+
+7) If no errors reported in step 6, install cron job:
+
+    cp /usr/local/capacity/capacity.cron /etc/cron.d/ && /etc/init.d/cron reload
+
+    - OR -
+
+    [edit capacity.cron to your liking, removing the root username]
+    crontab /usr/local/capacity.cron
+
+8) Once there's data collected, visit the web interface you set up with apache.  You can click on any peak metric
+   to see a graph of that metric over time.  Note: trend graphs will obviously only become useful after several 
+   days/weeks/months of data is collected. :)
+
+That should be it.
+
+Ross MacKinnon
+<mackira@gmail.com>
+
