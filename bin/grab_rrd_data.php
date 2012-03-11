@@ -323,6 +323,7 @@ function get_arguments()
 
     $OPTIONS = array();
     $OPTIONS['start'] = isset($opts['s']) ? $opts['s'] : 604800;
+    $OPTIONS['end'] = '';
     $OPTIONS['host'] = isset($opts['H']) ? $opts['H'] : $GLOBALS['db']['host'];
     $OPTIONS['user'] = isset($opts['u']) ? $opts['u'] : $GLOBALS['db']['user'];
     $OPTIONS['password'] = isset($opts['p']) ? $opts['p'] : $GLOBALS['db']['password'];
