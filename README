@@ -45,11 +45,18 @@ It is assumed that you already have a working Ganglia setup.
 5) Setup apache to serve the php scripts under the html directory. 
    TODO: include sample apache conf.d file.
 
-6) Test grab_rrd_data.php (which collects ganglia data into db) in the bin directory:
+6) Ensure conf directory is writeable by apache user.  
+   e.g., chown -R www-data:www-data /usr/local/capacity/conf
 
-    php /usr/local/capacity/bin/grab_rrd_data.php
+7) Ensure logs directory is writeable by all users (or just the ones running
+   grab_rrd_data.php below).
+   e.g., chmod 777 /usr/local/capacity/logs
 
-7) If no errors reported in step 6, install cron job:
+8) Test grab_rrd_data.php (which collects ganglia data into db) in the bin directory:
+
+    cd /usr/local/capacity/bin; php /usr/local/capacity/bin/grab_rrd_data.php
+
+9) If no errors reported in step 6, install cron job:
 
     cp /usr/local/capacity/capacity.cron /etc/cron.d/ && /etc/init.d/cron reload
 
@@ -58,10 +65,10 @@ It is assumed that you already have a working Ganglia setup.
     [edit capacity.cron to your liking, removing the root username, and install
      into your crontab]
 
-8) Once there's data collected, visit the web interface you set up with apache.  You 
-   can click on any peak metric to see a graph of that metric over time.  
-   Note: trend graphs will obviously only become useful after several 
-         days/weeks/months of data is collected. :)
+10) Once there's data collected, visit the web interface you set up with apache.  You 
+    can click on any peak metric to see a graph of that metric over time.  
+    Note: trend graphs will obviously only become useful after several 
+          days/weeks/months of data is collected. :)
 
 That should be it.
 
