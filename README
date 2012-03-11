@@ -47,8 +47,8 @@ It is assumed that you already have a working Ganglia setup.
 
     - OR -
 
-    [edit capacity.cron to your liking, removing the root username]
-    crontab /usr/local/capacity.cron
+    [edit capacity.cron to your liking, removing the root username, and install
+     into your crontab]
 
 8) Once there's data collected, visit the web interface you set up with apache.  You 
    can click on any peak metric to see a graph of that metric over time.  
