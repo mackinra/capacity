@@ -1,6 +1,6 @@
 CREATE DATABASE capacity;
 
-GRANT ALL ON capacity.* TO 'capacity'@'%' INDENTIFIED BY 'planning';
+GRANT ALL ON capacity.* TO 'capacity'@'%' IDENTIFIED BY 'planning';
 
 USE capacity;
 
